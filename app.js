@@ -12,6 +12,7 @@ Vue.createApp({
                 age: "", 
                 gender: "",
             },
+            applicants: [],
             newApplicant: {
                 name: "", 
                 phoneNumber: "",
@@ -35,23 +36,35 @@ Vue.createApp({
 
         //makes a POST request to the server from a "create listing" form
         createListing: function(){
+            //question: I dont understand headers
+/*             newPet: {
+                name: "", 
+                species: "", 
+                breed: "", 
+                age: "", 
+                gender: "",
+            }, */
+
+            "name=" (this.newPet)
 
         },
 
         //makes a DELETE request to the server based on the ID number of the pet being deleted
         deleteListing: function(listingId){
-
-        },
-
-        searchListing: function() {
-            //not tested 
-            fetch(`http.pet ${this.search}`) //need http
-            .then(response => response.json())
-            .then(data => {
-                this.pets = data;
-                console.log(this.pets);
-            });
-        },
+            var delPet = this.pets[listingId]._id;
+            var requestOptions = {
+                method: "DELETE"
+            };
+            fetch(`http://host/pets/${delId}`, requestOptions)
+                .then((response) => {
+                    if (response.status === 204) {
+                        console.log("pet was deleted");
+                    } else {
+                        alert("pet was not deleted")
+                    }
+                }
+            )
+        },//deleteListing close
 
         resetSearch: function() {
             this.search = ""
@@ -75,9 +88,15 @@ Vue.createApp({
     },//methods close
 
     created : function() {
+        this.getListings();
     }, //created close
 
     watch: {
+        search(newSearch, oldSearch) {
+            this.filteredPets = this.pets.filter((pet) => {
+                return pet.name.toLowerCase().includes(newSearch.toLowerCase());
+            });
+        } //search close
     },//watch close
 
     computed: {
