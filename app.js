@@ -12,6 +12,12 @@ Vue.createApp({
                 age: "", 
                 gender: "",
             },
+            newApplicant: {
+                name: "", 
+                phoneNumber: "",
+                email: "",
+                petId: "",
+            }
         } //return close
 
     },//data close
@@ -45,6 +51,10 @@ Vue.createApp({
                 this.pets = data;
                 console.log(this.pets);
             });
+        },
+
+        resetSearch: function() {
+            this.search = ""
         },
 
         //makes a GET request for all adoption applications
