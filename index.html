@@ -63,11 +63,18 @@
                     <label>
                         <span>Applicant Name</span>
                         <input type="text" v-model="newApplicant.name">
+                    </label>
+
+                    <label>
                         <span>Applicant Phone Number</span>
                         <input type="text" v-model="newApplicant.phoneNumber">
+                    </label>
+
+                    <label>   
                         <span>Applicant Email</span>
                         <input type="text" v-model="newApplicant.email">
                     </label>
+                    <button v-on:click="submitApp()">Submit</button>
                 </form>
             </div>
             <div class="add-form">
@@ -75,15 +82,28 @@
                     <label>
                         <span>Pet Name</span>
                         <input type="text" v-model="newPet.name">
+                    </label>
+
+                    <label>
                         <span>Pet Species</span>
                         <input type="text" v-model="newPet.species">
+                    </label>
+
+                    <label>
                         <span>Pet Breed</span>
                         <input type="text" v-model="newPet.breed">
+                    </label>
+
+                    <label>
                         <span>Pet Age</span>
                         <input type="text" v-model="newPet.age">
+                    </label>
+
+                    <label>
                         <span>Pet Gender</span>
                         <input type="text" v-model="newPet.gender">
                     </label>
+                    <button v-on:click="submitPet()">Submit</button>
                 </form>
             </div>
         </div>
