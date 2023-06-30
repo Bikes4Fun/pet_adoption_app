@@ -87,10 +87,6 @@ Vue.createApp({
             )
         },
 
-        resetSearch: function() {
-            this.search = ""
-        },
-
         //makes a GET request for all adoption applications
         getApplications: function(){
             fetch('http://applicants...')
@@ -133,6 +129,11 @@ Vue.createApp({
         changePage: function(page){
 
         },
+
+        resetSearch: function() {
+            this.search = ""
+        },
+
     },//methods close
 
     created : function() {
