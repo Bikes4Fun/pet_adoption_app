@@ -44,7 +44,7 @@ const adoptionAppSchema = new mongoose.Schema({
 });
 
 const Pet = mongoose.model("Pet", petSchema);
-const AdoptionApp = mongoose.model("AdoptionApp", AdoptionAppSchema);
+const AdoptionApp = mongoose.model("AdoptionApp", adoptionAppSchema);
 
 module.exports = {
     Pet: Pet,
