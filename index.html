@@ -13,24 +13,40 @@
 <body>
     <div id="app">
         <!-- Content goes here -->
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="applications.html">APPLICATIONS</a>
+        </nav>
         <header>
             <h1>Get exotic pets here!</h1>
             <input type="text" placeholder="Search..." v-model="search">
             <div v-on:click="resetSearch()" id="reset">x</div>
         </header>
 
-        <div class="animals">
+        <div class="thepets">
             <div class="row-head">
-            <div>Name</div>
-            <div>Species</div>
-            <div>Breed</div>
-            <div>
-                Age
-                <span @click="sortAge()">&and;</span>
-                <span @click="sortAge()">&or;</span>
+                <div>Name</div>
+                <div>Species</div>
+                <div>Breed</div>
+                <div>
+                    Age
+                    <span @click="sortAge()">&and;</span>
+                    <span @click="sortAge()">&or;</span>
+                </div>
+                <div>Gender</div>
             </div>
-            <div>Gender</div>
+
+            <div v-for="pet in filteredPets" 
+                class="row-body" 
+                v-if="search.length > 0 && filteredAnimals.length > 0"
+            >
+                <div>{{pet.name}}</div>
+                <div>{{pet.species}}</div>
+                <div>{{pet.breed}}</div>
+                <div>{{pet.age}}</div>
+                <div>{{pet.gender}}</div>
             </div>
+
         </div>
 
     </div>
