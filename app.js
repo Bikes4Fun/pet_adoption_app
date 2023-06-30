@@ -2,7 +2,13 @@
 Vue.createApp({
     data() {
         return {
-            pets: [], 
+            pets: [{
+                name: "Cute Pet", 
+                species: "pet species", 
+                breed: "nice breed", 
+                age: 0, 
+                gender: "animal",
+            }], 
             search: "",
             filteredPets: [],
             newPet: {
