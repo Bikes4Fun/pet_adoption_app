@@ -32,7 +32,7 @@ Vue.createApp({
     methods : {
         //makes a GET request to the server for all pet listings
         getListings: function(){
-            fetch("https.pet...")
+            fetch("http://localhost:8080/pets")
             .then(response => response.json())
             .then(data => {
                 this.pets = data;
@@ -54,12 +54,12 @@ Vue.createApp({
             console.log(encodedData);
 
             var requestOptions = {
-                method: "PUT",
+                method: "POST",
                 body: encodedData,
                 headers: myHeaders
             };
             
-            fetch("http://host:pets....", requestOptions)
+            fetch("http://localhost:8080/pets", requestOptions)
             .then((response) => {
                 if (response.status === 201) {
                     response.json().then((data) => {
@@ -79,7 +79,7 @@ Vue.createApp({
             var requestOptions = {
                 method: "DELETE"
             };
-            fetch(`http://host/pets/${delId}`, requestOptions)
+            fetch(`http://localhost:8080/pets/${delId}`, requestOptions)
                 .then((response) => {
                     if (response.status === 204) {
                         console.log("pet was deleted");
