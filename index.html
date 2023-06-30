@@ -38,7 +38,7 @@
 
             <div v-for="pet in filteredPets" 
                 class="row-body" 
-                v-if="search.length > 0 && filteredAnimals.length > 0"
+                v-if="search.length > 0 && filteredPets.length > 0"
             >
                 <div>{{pet.name}}</div>
                 <div>{{pet.species}}</div>
@@ -46,7 +46,28 @@
                 <div>{{pet.age}}</div>
                 <div>{{pet.gender}}</div>
             </div>
+            <div v-for="pet in pets"
+                class="row-body"
+                v-else
+            >
+                <div>{{pet.name}}</div>
+                <div>{{pet.species}}</div>
+                <div>{{pet.breed}}</div>
+                <div>{{pet.age}}</div>
+                <div>{{pet.gender}}</div>
+                <button @click="deletePet(pet)">Delete</button>
+                <button @click="petApplication(pet)">Apply</button>
+            </div>
 
+            <form @submit.prevent="petApplication(pet)">
+                <label>
+                    <span>Pet Name</span>
+                    <input type="text" v-model="pet.">
+                </label>
+            </form>
+            <div class="footer">
+                
+            </div>
         </div>
 
     </div>
