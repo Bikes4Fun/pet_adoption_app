@@ -13,7 +13,16 @@
 <body>
     <div id="app">
         <!-- Content goes here -->
-        
+        <header>
+            <h1>Get exotic pets here!</h1>
+            <input type="text" placeholder="Search..." v-model="search">
+            <div v-on:click="resetSearch()" id="reset">x</div>
+        </header>
+
+        <div class="animals">
+            
+        </div>
+
     </div>
     <script src="app.js"></script>
 </body>
