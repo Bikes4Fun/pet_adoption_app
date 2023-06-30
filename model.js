@@ -24,7 +24,7 @@ const petSchema = new mongoose.Schema({
     }
 });
 
-const adoptionApp = new mongoose.Schema({
+const adoptionAppSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, "Must have a name"]
@@ -42,3 +42,11 @@ const adoptionApp = new mongoose.Schema({
         required: [true, "Must have a pet Id"]
     }
 });
+
+const Pet = mongoose.model("Pet", petSchema);
+const AdoptionApp = mongoose.model("AdoptionApp", AdoptionAppSchema);
+
+module.exports = {
+    Pet: Pet,
+    AdoptionApp: AdoptionApp
+}
