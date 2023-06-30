@@ -1,26 +1,29 @@
-const { response } = require("express");
 
 Vue.createApp({
     data() {
         return {
-            dogs: [], //all dogs list
+            pets: [], 
             search: "",
-            filteredDogs: [],
-            newDog: {
-                
-            }
-        }//return close
+            filteredPets: [],
+            newPet: {
+                name: "", 
+                species: "", 
+                breed: "", 
+                age: "", 
+                gender: "",
+            },
+        } //return close
 
     },//data close
 
     methods : {
         //makes a GET request to the server for all pet listings
         getListings: function(){
-            fetch("https.dog...")
+            fetch("https.pet...")
             .then(response => response.json())
             .then(data => {
-                this.dogs = data;
-                console.log(this.dogs);
+                this.pets = data;
+                console.log(this.pets);
             });
         },
 
@@ -36,11 +39,11 @@ Vue.createApp({
 
         searchListing: function() {
             //not tested 
-            fetch(`http.dog ${this.search}`) //need http
+            fetch(`http.pet ${this.search}`) //need http
             .then(response => response.json())
             .then(data => {
-                this.dogs = data;
-                console.log(this.dogs);
+                this.pets = data;
+                console.log(this.pets);
             });
         },
 
