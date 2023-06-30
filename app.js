@@ -6,7 +6,7 @@ Vue.createApp({
                 name: "Cute Pet", 
                 species: "pet species", 
                 breed: "nice breed", 
-                age: 0, 
+                age: "0", 
                 gender: "animal",
             }], 
             search: "",
@@ -43,16 +43,34 @@ Vue.createApp({
         //makes a POST request to the server from a "create listing" form
         createListing: function(){
             //question: I dont understand headers
-/*             newPet: {
-                name: "", 
-                species: "", 
-                breed: "", 
-                age: "", 
-                gender: "",
-            }, */
 
-            "name=" (this.newPet)
+            myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
+            var encodedData = "name=" + encodeURIComponent(this.modal.name) + 
+                                "&species=" + encodeURIComponent(this.modal.species) + 
+                                "&breed=" + encodeURIComponent(this.modal.breed);
+                                //age: "", gender: "",
+            console.log(encodedData);
+
+            var requestOptions = {
+                method: "PUT",
+                body: encodedData,
+                headers: myHeaders
+            };
+            
+            fetch("http://host:pets....", requestOptions)
+            .then((response) => {
+                if (response.status === 201) {
+                    response.json().then((data) => {
+                        this.pets.push(data);
+                        this.newPet = {};
+                    })
+                }
+                else{
+                    alert("Not able to add a pet... ")
+                }
+            })
         },
 
         //makes a DELETE request to the server based on the ID number of the pet being deleted
