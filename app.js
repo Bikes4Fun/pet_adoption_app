@@ -3,7 +3,8 @@ const { response } = require("express");
 Vue.createApp({
     data() {
         return {
-
+            dog: "", //one dog
+            dogs: [], //all dogs list
         }//return close
 
     },//data close
@@ -11,7 +12,12 @@ Vue.createApp({
     methods : {
         //makes a GET request to the server for all pet listings
         getListings: function(){
-
+            fetch("https.dog...")
+            .then(response => response.json())
+            .then(data => {
+                this.dogs = data;
+                console.log(this.dogs);
+            });
         },
 
         //makes a POST request to the server from a "create listing" form
@@ -22,6 +28,16 @@ Vue.createApp({
         //makes a DELETE request to the server based on the ID number of the pet being deleted
         deleteListing: function(listingId){
 
+        },
+
+        searchListing: function() {
+            //not tested 
+            fetch(`http.dog ${this.search}`) //need http
+            .then(response => response.json())
+            .then(data => {
+                this.dogs = data;
+                console.log(this.dogs);
+            });
         },
 
         //makes a GET request for all adoption applications
@@ -35,7 +51,7 @@ Vue.createApp({
         },
 
         //goes to a different "page" - a.k.a. changes a page data property that hides and shows specific sections
-        changePag: function(page){
+        changePage: function(page){
 
         },
 
