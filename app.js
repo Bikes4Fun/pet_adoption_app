@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 //making changes
 Vue.createApp({
     data() {
@@ -26,7 +28,6 @@ Vue.createApp({
                 petId: "",
             }
         } //return close
-
     },//data close
 
     methods : {
@@ -43,7 +44,6 @@ Vue.createApp({
         //makes a POST request to the server from a "create listing" form
         createListing: function(){
             //question: I dont understand headers
-
             myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -79,7 +79,11 @@ Vue.createApp({
             var requestOptions = {
                 method: "DELETE"
             };
+<<<<<<< Updated upstream
             fetch(`http://localhost:8080/pets/${delId}`, requestOptions)
+=======
+            fetch(`http://host/pets/${delPet}`, requestOptions)
+>>>>>>> Stashed changes
                 .then((response) => {
                     if (response.status === 204) {
                         console.log("pet was deleted");
@@ -96,12 +100,18 @@ Vue.createApp({
 
         //makes a GET request for all adoption applications
         getApplications: function(){
-
+            fetch('http://applicants...')
+            .then(response => response.json()).then((data) => {
+                this.applicants = data;
+            });
         },
 
         //makes a POST request to the server from a "new adoption" application form
         createApplication: function(){
-
+            var encodedData = "name=" + encodeURIComponent(this.newApplicant.name) +
+                              "&phoneNumber=" + encodeURIComponent(this.newApplicant.phoneNumber) +
+                              "&email=" + encodeURIComponent(this.newApplicant.email) +
+                              "&petId=" + encodeURIComponent(this.newApplicant.petId);
         },
 
         //goes to a different "page" - a.k.a. changes a page data property that hides and shows specific sections
