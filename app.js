@@ -24,8 +24,8 @@ Vue.createApp({
                 email: "",
                 petId: "",
             }
-        } //return close
-    },//data close
+        } 
+    },
 
     methods : {
         //makes a GET request to the server for all pet listings
@@ -85,7 +85,7 @@ Vue.createApp({
                     }
                 }
             )
-        },//deleteListing close
+        },
 
         resetSearch: function() {
             this.search = ""
@@ -127,13 +127,12 @@ Vue.createApp({
                     alert("Did not create new applicant...")
                 }
             })
-        },//createApplication close
+        },
 
         //goes to a different "page" - a.k.a. changes a page data property that hides and shows specific sections
         changePage: function(page){
 
         },
-
     },//methods close
 
     created : function() {
@@ -145,10 +144,10 @@ Vue.createApp({
             this.filteredPets = this.pets.filter((pet) => {
                 return pet.name.toLowerCase().includes(newSearch.toLowerCase());
             });
-        } //search close
-    },//watch close
+        }
+    },
 
     computed: {
-    },//computed close
+    },
 
 }).mount("#app");
