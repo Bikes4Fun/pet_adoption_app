@@ -1,6 +1,3 @@
-const { response } = require("express");
-
-//making changes
 Vue.createApp({
     data() {
         return {
@@ -79,11 +76,7 @@ Vue.createApp({
             var requestOptions = {
                 method: "DELETE"
             };
-<<<<<<< Updated upstream
-            fetch(`http://localhost:8080/pets/${delId}`, requestOptions)
-=======
             fetch(`http://host/pets/${delPet}`, requestOptions)
->>>>>>> Stashed changes
                 .then((response) => {
                     if (response.status === 204) {
                         console.log("pet was deleted");
@@ -108,11 +101,33 @@ Vue.createApp({
 
         //makes a POST request to the server from a "new adoption" application form
         createApplication: function(){
+            //question: i still don't understand what headers are doing
+            myHeaders = new Headers();
+            myHeaders.append("Content-Type","application/x-www-form-urlencoded");
+
             var encodedData = "name=" + encodeURIComponent(this.newApplicant.name) +
                               "&phoneNumber=" + encodeURIComponent(this.newApplicant.phoneNumber) +
                               "&email=" + encodeURIComponent(this.newApplicant.email) +
                               "&petId=" + encodeURIComponent(this.newApplicant.petId);
-        },
+
+            var requestOptions = {
+                method: "POST",
+                body: encodedData,
+                headers: myHeaders
+            };
+
+            fetch("http://applicants", requestOptions)
+            .then((response) => {
+                if (response.status === 201) {
+                    response.json().then((data) => {
+                        this.applicants.push(data);
+                        this.newApplicant = {};
+                    })
+                } else {
+                    alert("Did not create new applicant...")
+                }
+            })
+        },//createApplication close
 
         //goes to a different "page" - a.k.a. changes a page data property that hides and shows specific sections
         changePage: function(page){
