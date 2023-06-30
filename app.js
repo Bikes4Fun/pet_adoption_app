@@ -3,8 +3,12 @@ const { response } = require("express");
 Vue.createApp({
     data() {
         return {
-            dog: "", //one dog
             dogs: [], //all dogs list
+            search: "",
+            filteredDogs: [],
+            newDog: {
+                
+            }
         }//return close
 
     },//data close
