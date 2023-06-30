@@ -46,7 +46,7 @@
                 <div>{{pet.age}}</div>
                 <div>{{pet.gender}}</div>
             </div>
-            <div v-for="pet in pets"
+            <div v-for="(pet,index) in pets"
                 class="row-body"
                 v-else
             >
@@ -58,15 +58,33 @@
                 <button @click="deletePet(pet)">Delete</button>
                 <button @click="petApplication(pet)">Apply</button>
             </div>
-
-            <form @submit.prevent="petApplication(pet)">
-                <label>
-                    <span>Pet Name</span>
-                    <input type="text" v-model="pet.">
-                </label>
-            </form>
-            <div class="footer">
-                
+            <div class="app-form">
+                <form @submit.prevent="petApplication(pet)">
+                    <label>
+                        <span>Applicant Name</span>
+                        <input type="text" v-model="newApplicant.name">
+                        <span>Applicant Phone Number</span>
+                        <input type="text" v-model="newApplicant.phoneNumber">
+                        <span>Applicant Email</span>
+                        <input type="text" v-model="newApplicant.email">
+                    </label>
+                </form>
+            </div>
+            <div class="add-form">
+                <form @submit.prevent="addPet()">
+                    <label>
+                        <span>Pet Name</span>
+                        <input type="text" v-model="newPet.name">
+                        <span>Pet Species</span>
+                        <input type="text" v-model="newPet.species">
+                        <span>Pet Breed</span>
+                        <input type="text" v-model="newPet.breed">
+                        <span>Pet Age</span>
+                        <input type="text" v-model="newPet.age">
+                        <span>Pet Gender</span>
+                        <input type="text" v-model="newPet.gender">
+                    </label>
+                </form>
             </div>
         </div>
 
