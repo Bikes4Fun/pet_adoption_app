@@ -11,14 +11,14 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="wrapper">
         <!-- Content goes here -->
-        <nav>
-            <a href="index.html">HOME</a>
-            <a href="applications.html">APPLICATIONS</a>
-        </nav>
         <header>
             <h1>Get exotic pets here!</h1>
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="applications.html">APPLICATIONS</a>
+            </nav>
             <input type="text" placeholder="Search..." v-model="search">
             <div v-on:click="resetSearch()" id="reset">x</div>
         </header>
