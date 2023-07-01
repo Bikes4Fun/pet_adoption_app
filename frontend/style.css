@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
+    font-style: normal;
 }
 
 body {
@@ -42,18 +44,27 @@ main {
 
 .pet-background {
     background-image: url("https://images.pexels.com/photos/16652367/pexels-photo-16652367/free-photo-of-cute-dog-with-collar-on-leash-in-park.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-    width: 200px;
-    height: auto;
-    min-height: 200px;
+    height: 100px;
+    min-width: 100px;
     background-repeat: no-repeat;
     background-size: contain ;
 }
 
-.pet-container {
+.search-container {
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-evenly;
+    justify-self: end;
 }
 
 .pet-thumbnail {
-    display: flex;
+    margin: 5px;
+    place-self: start center;
+}
+
+.pet-stats {
+    background-color: white;
+}
+.pet-name {
+    color: #8f00ff;
 }

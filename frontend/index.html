@@ -46,15 +46,15 @@
             </div>
 
             <div class="search-container">
-                <div class="pet-thumbnail"> 
+                <div class="pet-thumbnail" v-for="(pet,index) in pets" v-else>
                     <div class="pet-background"></div>
-                    <div class="row-body" v-for="(pet,index) in pets" v-else>
-                        <div>{{pet.name}}</div>
+                    <div class="pet-stats">
+                        <div class="pet-name">{{pet.name}}</div>
                         <div>{{pet.species}}</div>
                         <div>{{pet.breed}}</div>
                         <div>{{pet.age}}</div>
                         <div>{{pet.gender}}</div>
-                        <button @click="deletePet(pet)">Delete</button>
+                        <!-- <button @click="deletePet(pet)">Delete</button> -->
                         <button @click="petApplication(pet)">Apply</button>
                     </div>
                 </div>
