@@ -53,3 +53,7 @@ main {
     display: flex;
     flex-flow: row wrap;
 }
+
+.pet-thumbnail {
+    display: flex;
+}
