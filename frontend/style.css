@@ -34,6 +34,12 @@ main {
     margin: 0 16px 0 16px;
 }
 
+.row-head {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
 .pet-background {
     background-image: url("https://images.pexels.com/photos/16652367/pexels-photo-16652367/free-photo-of-cute-dog-with-collar-on-leash-in-park.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
     width: 200px;
@@ -43,8 +49,7 @@ main {
     background-size: contain ;
 }
 
-.row-head {
+.pet-container {
     display: flex;
-    flex-flow: row;
-    justify-content: space-between;
+    flex-flow: row wrap;
 }

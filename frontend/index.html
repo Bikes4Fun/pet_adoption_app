@@ -45,15 +45,17 @@
                 <div>{{pet.gender}}</div>
             </div>
 
-            <div v-for="(pet,index) in pets" class="row-body" v-else>
-                <div class="pet-background"></div>
-                <div>{{pet.name}}</div>
-                <div>{{pet.species}}</div>
-                <div>{{pet.breed}}</div>
-                <div>{{pet.age}}</div>
-                <div>{{pet.gender}}</div>
-                <button @click="deletePet(pet)">Delete</button>
-                <button @click="petApplication(pet)">Apply</button>
+            <div class="pet-container">
+                <div v-for="(pet,index) in pets" class="row-body" v-else>
+                    <div class="pet-background"></div>
+                    <div>{{pet.name}}</div>
+                    <div>{{pet.species}}</div>
+                    <div>{{pet.breed}}</div>
+                    <div>{{pet.age}}</div>
+                    <div>{{pet.gender}}</div>
+                    <button @click="deletePet(pet)">Delete</button>
+                    <button @click="petApplication(pet)">Apply</button>
+                </div>
             </div>
 
             <div class="app-form">
