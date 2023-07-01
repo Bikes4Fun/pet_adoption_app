@@ -21,6 +21,7 @@ header {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    margin: 16px;
 }
 
 input {
@@ -30,6 +31,13 @@ input {
 main {
     grid-column: 2/-2;
     grid-row: 2/3;
+    margin: 0 16px 0 16px;
+}
+
+.pet-background {
+    background-image: url("https://www.pexels.com/photo/cute-dog-with-collar-on-leash-in-park-16652367/");
+    min-width: 300px;
+    min-height: 500px;
 }
 
 .row-head {

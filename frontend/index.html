@@ -12,7 +12,7 @@
 
 <body>
     <div id="app" class="wrapper">
-        <!-- Content goes here -->
+
         <header>
             <h1>Get exotic pets here!</h1>
             <nav>
@@ -36,20 +36,17 @@
                 <div>Gender</div>
             </div>
 
-            <div v-for="pet in filteredPets" 
-                class="row-body" 
-                v-if="search.length > 0 && filteredPets.length > 0"
-            >
+            <div v-for="pet in filteredPets" class="row-body" 
+                v-if="search.length > 0 && filteredPets.length > 0">
                 <div>{{pet.name}}</div>
                 <div>{{pet.species}}</div>
                 <div>{{pet.breed}}</div>
                 <div>{{pet.age}}</div>
                 <div>{{pet.gender}}</div>
             </div>
-            <div v-for="(pet,index) in pets"
-                class="row-body"
-                v-else
-            >
+
+            <div v-for="(pet,index) in pets" class="row-body" v-else>
+                <span class="pet-background"></span>
                 <div>{{pet.name}}</div>
                 <div>{{pet.species}}</div>
                 <div>{{pet.breed}}</div>
@@ -58,6 +55,7 @@
                 <button @click="deletePet(pet)">Delete</button>
                 <button @click="petApplication(pet)">Apply</button>
             </div>
+
             <div class="app-form">
                 <form @submit.prevent="petApplication(pet)">
                     <label>
@@ -77,6 +75,7 @@
                     <button v-on:click="submitApp()">Submit</button>
                 </form>
             </div>
+
             <div class="add-form">
                 <form @submit.prevent="addPet()">
                     <label>
@@ -106,6 +105,7 @@
                     <button v-on:click="submitPet()">Submit</button>
                 </form>
             </div>
+
         </main>
 
     </div>
