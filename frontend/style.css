@@ -53,18 +53,19 @@ main {
 .search-container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     justify-self: end;
 }
 
 .pet-thumbnail {
     margin: 5px;
-    place-self: start center;
 }
 
 .pet-stats {
     background-color: white;
 }
+
 .pet-name {
     color: #8f00ff;
+    font-size: larger;
 }
