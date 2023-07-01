@@ -4,3 +4,16 @@
     box-sizing: border-box;
 }
 
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(13, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    gap: 16px;
+}
+
+header {
+    grid-column: 2/-2;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
