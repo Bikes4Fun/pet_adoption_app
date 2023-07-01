@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #efeef1;
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: repeat(13, minmax(0, 1fr));
@@ -17,6 +21,10 @@ header {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+}
+
+input {
+    background-color: white;
 }
 
 main {
