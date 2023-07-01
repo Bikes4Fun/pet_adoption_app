@@ -1,4 +1,3 @@
-//making changes
 Vue.createApp({
     data() {
         return {
@@ -25,14 +24,13 @@ Vue.createApp({
                 email: "",
                 petId: "",
             }
-        } //return close
-
-    },//data close
+        } 
+    },
 
     methods : {
         //makes a GET request to the server for all pet listings
         getListings: function(){
-            fetch("https.pet...")
+            fetch("http://localhost:8080/pets")
             .then(response => response.json())
             .then(data => {
                 this.pets = data;
@@ -43,7 +41,6 @@ Vue.createApp({
         //makes a POST request to the server from a "create listing" form
         createListing: function(){
             //question: I dont understand headers
-
             myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -54,12 +51,12 @@ Vue.createApp({
             console.log(encodedData);
 
             var requestOptions = {
-                method: "PUT",
+                method: "POST",
                 body: encodedData,
                 headers: myHeaders
             };
             
-            fetch("http://host:pets....", requestOptions)
+            fetch("http://localhost:8080/pets", requestOptions)
             .then((response) => {
                 if (response.status === 201) {
                     response.json().then((data) => {
@@ -79,7 +76,7 @@ Vue.createApp({
             var requestOptions = {
                 method: "DELETE"
             };
-            fetch(`http://host/pets/${delId}`, requestOptions)
+            fetch(`http://host/pets/${delPet}`, requestOptions)
                 .then((response) => {
                     if (response.status === 204) {
                         console.log("pet was deleted");
@@ -88,25 +85,53 @@ Vue.createApp({
                     }
                 }
             )
-        },//deleteListing close
-
-        resetSearch: function() {
-            this.search = ""
         },
 
         //makes a GET request for all adoption applications
         getApplications: function(){
-
+            fetch('http://applicants...')
+            .then(response => response.json()).then((data) => {
+                this.applicants = data;
+            });
         },
 
         //makes a POST request to the server from a "new adoption" application form
         createApplication: function(){
+            //question: i still don't understand what headers are doing
+            myHeaders = new Headers();
+            myHeaders.append("Content-Type","application/x-www-form-urlencoded");
 
+            var encodedData = "name=" + encodeURIComponent(this.newApplicant.name) +
+                              "&phoneNumber=" + encodeURIComponent(this.newApplicant.phoneNumber) +
+                              "&email=" + encodeURIComponent(this.newApplicant.email) +
+                              "&petId=" + encodeURIComponent(this.newApplicant.petId);
+
+            var requestOptions = {
+                method: "POST",
+                body: encodedData,
+                headers: myHeaders
+            };
+
+            fetch("http://applicants", requestOptions)
+            .then((response) => {
+                if (response.status === 201) {
+                    response.json().then((data) => {
+                        this.applicants.push(data);
+                        this.newApplicant = {};
+                    })
+                } else {
+                    alert("Did not create new applicant...")
+                }
+            })
         },
 
         //goes to a different "page" - a.k.a. changes a page data property that hides and shows specific sections
         changePage: function(page){
 
+        },
+
+        resetSearch: function() {
+            this.search = ""
         },
 
     },//methods close
@@ -120,10 +145,10 @@ Vue.createApp({
             this.filteredPets = this.pets.filter((pet) => {
                 return pet.name.toLowerCase().includes(newSearch.toLowerCase());
             });
-        } //search close
-    },//watch close
+        }
+    },
 
     computed: {
-    },//computed close
+    },
 
 }).mount("#app");
