@@ -55,7 +55,31 @@ Vue.createApp({
         age: "",
         gender: "",
       },
-      applicants: [],
+      applicants: [
+        {
+          name: "Alina",
+          phoneNumber: "000-000-0000",
+          email: "alina@alina.com",
+          petId: "BumbleBee"
+        }
+      ],
+      modalOpen: false,
+      modal: {
+        index: -1,
+        fullname: "",
+        phoneNumber: "",
+        email: "",
+        petId: ""
+      },
+      petmodalOpen: false,
+      petmodal: {
+        index: -1,
+        petname:"",
+        species: "",
+        breed: "",
+        age: "",
+        gender: ""
+      },
       newApplicant: {
         name: "",
         phoneNumber: "",
@@ -135,6 +159,32 @@ Vue.createApp({
           this.applicants = data;
         });
     },
+
+    toggleModal: function(index = null) {
+      this.modalOpen = !this.modalOpen;
+      if (index !== null) {
+        let app = this.applicants[index];
+        this.modal.index = index;
+        this.modal.fullname = fullname;
+        this.modal.phoneNumber = phoneNumber;
+        this.modal.email = email;
+        this.modal.petId = petId;
+      }
+    },
+
+    togglepetModal: function(index = null) {
+      this.petmodalOpen = !this.petmodalOpen;
+      if (index !== null) {
+        let pet = this.pets[index];
+        this.petmodal.index = index;
+        this.petmodal.petname = petname;
+        this.petmodal.species = species;
+        this.petmodal.breed = breed;
+        this.petmodal.age = age;
+        this.petmodal.gender = gender;
+      }
+    },
+
 
     //makes a POST request to the server from a "new adoption" application form
     createApplication: function () {
