@@ -11,16 +11,16 @@
 </head>
 
 <body>
-    <div id="app" class="wrapper">
-
+    <div id="app">
         <header>
-            <h1>Get exotic pets here!</h1>
             <nav>
-                <a href="index.html">HOME</a>
+                <a href="index.html" class="active">HOME</a>
                 <a href="applications.html">APPLICATIONS</a>
             </nav>
+            <h1>Get the cutest pets here!</h1>
             <input type="text" placeholder="Search..." v-model="search">
             <div v-on:click="resetSearch()" id="reset">x</div>
+            <button @click="togglepetModal(index)">add pet</button>
         </header>
 
         <main class="thepets">
@@ -54,61 +54,30 @@
                         <div>{{pet.breed}}</div>
                         <div>{{pet.age}}</div>
                         <!-- <button @click="deletePet(pet)">Delete</button> -->
-                        <button @click="petApplication(pet)">Apply</button>
+                        <button @click="toggleModal(index)">Apply</button>
                     </div>
                 </div>
             </div>
-
-            <div class="app-form">
-                <form @submit.prevent="petApplication(pet)">
-                    <label>
-                        <span>Applicant Name</span>
-                        <input type="text" v-model="newApplicant.name">
-                    </label>
-
-                    <label>
-                        <span>Applicant Phone Number</span>
-                        <input type="text" v-model="newApplicant.phoneNumber">
-                    </label>
-
-                    <label>   
-                        <span>Applicant Email</span>
-                        <input type="text" v-model="newApplicant.email">
-                    </label>
-                    <button v-on:click="submitApp()">Submit</button>
-                </form>
+            <div class="modal" v-show="modalOpen">
+                <div class="content">
+                    <div id="close" @click="toggleModal()">x</div>
+                    Name<input type="text" v-model="modal.fullname">
+                    Number<input type="text" v-model="modal.phoneNumber">
+                    Email<input type="text" v-model="modal.email">
+                    Pet ID<input type="text" v-model="modal.petId">
+                    <button v-on:click="createApplication()">Submit</button>
+                </div>
             </div>
-
-            <div class="add-form">
-                <form @submit.prevent="addPet()">
-                    <label>
-                        <span>Pet Name</span>
-                        <input type="text" v-model="newPet.name">
-                    </label>
-
-                    <label>
-                        <span>Pet Species</span>
-                        <input type="text" v-model="newPet.species">
-                    </label>
-
-                    <label>
-                        <span>Pet Breed</span>
-                        <input type="text" v-model="newPet.breed">
-                    </label>
-
-                    <label>
-                        <span>Pet Age</span>
-                        <input type="text" v-model="newPet.age">
-                    </label>
-
-                    <label>
-                        <span>Pet Gender</span>
-                        <input type="text" v-model="newPet.gender">
-                    </label>
-                    <button v-on:click="submitPet()">Submit</button>
-                </form>
+            <div class="petmodal" v-show="petmodalOpen">
+                <div class="stuff">
+                    <div id="close" @click="togglepetModal()">x</div>
+                    Pet's Name<input type="text" v-model="petmodal.petname">
+                    Species of Pet<input type="text" v-model="petmodal.species">
+                    Breed<input type="text" v-model="petmodal.breed">
+                    Pet's Age<input type="text" v-model="petmodal.age">
+                    <button v-on:click="createListing()">Submit</button>
+                </div>
             </div>
-
         </main>
 
     </div>
