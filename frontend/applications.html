@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue App</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="app.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav>
-        <a href="index.html">HOME</a>
-        <a href="applications.html">APPLICATIONS</a>
+      <a href="index.html">HOME</a>
+      <a href="applications.html">APPLICATIONS</a>
     </nav>
     <div id="app">
-        <!-- Content goes here -->
-        <h1>Adoption Applications</h1>
+      <!-- Content goes here -->
+      <h1>Adoption Applications</h1>
+      <div>
+        <form>
+          <label for="">Name: </label>
+          <input type="text" v-model="newApplicant.name" />
+          <label for="">Phone Number: </label>
+          <input type="number" v-model="newApplicant.phoneNumber" />
+          <label for="">Email: </label>
+          <input type="email" v-model="newApplicant.email" />
+          <label for="">Pet ID: </label>
+          <input type="number" v-model="newApplicant.petId" />
+          <button type="submit" @click="createApplication()">Submit</button>
+        </form>
+        <div>{{newApplicant}}</div>
+      </div>
     </div>
     <script src="app.js"></script>
-</body>
-
+  </body>
 </html>

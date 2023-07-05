@@ -1,27 +1,27 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
+require("dotenv").config({ path: "./.env" });
 mongoose.connect(process.env.DB_LINK);
 
 const petSchema = new mongoose.Schema({
   name: {
     type: String,
-    // required: [true, "Must have a name"],
+    required: [true, "Must have a name"],
   },
   species: {
     type: String,
-    // required: [true, "Must have species"],
+    required: [true, "Must have species"],
   },
   breed: {
     type: String,
-    // required: [true, "Must have breed"],
+    required: [true, "Must have breed"],
   },
   age: {
     type: Number,
-    // required: [true, "Must have age"],
+    required: [true, "Must have age"],
   },
   gender: {
     type: String,
-    // required: [true, "Must have gender"],
+    required: [true, "Must have gender"],
   },
 });
 
