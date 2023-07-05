@@ -86,6 +86,7 @@ Vue.createApp({
         email: "",
         petId: "",
       },
+      sortOrder: ""
     };
   },
 
@@ -132,6 +133,26 @@ Vue.createApp({
           alert("Not able to add a pet... ");
         }
       });
+    },
+
+    sortAge: function() {
+      if (this.sortOrder == 'asc') {
+        function compare(a,b) {
+          if (a.amount > b.amount) return -1;
+          if (a.amount < b.amount) return 1;
+          return 0;
+        }
+        this.sortOrder = 'desc';
+      }
+      else {
+        function compare(a,b) {
+          if (a.amount < b.amount) return -1;
+          if (a.amount > b.amount) return 1;
+          return 0;
+        }
+        this.sortOrder = 'asc';
+      }
+      this.expenses.sort(compare);
     },
 
     //makes a DELETE request to the server based on the ID number of the pet being deleted
