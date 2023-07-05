@@ -22,7 +22,6 @@
             <div v-on:click="resetSearch()" id="reset">x</div>
             <button @click="togglepetModal(index)">add pet</button>
         </header>
-
         <main class="thepets">
             <div class="row-head">
                 <div>Name</div>
@@ -30,12 +29,11 @@
                 <div>Breed</div>
                 <div>
                     Age
-                    <span @click="sortStuff()">&and;</span>
-                    <span @click="sortStuff()">&or;</span>
+                    <span @click="sortAge()">&and;</span>
+                    <span @click="sortAge()">&or;</span>
                 </div>
                 <div>Gender</div>
             </div>
-
             <div v-for="pet in filteredPets" class="row-body" 
                 v-if="search.length > 0 && filteredPets.length > 0">
                 <div>{{pet.name}}</div>
@@ -44,18 +42,12 @@
                 <div>{{pet.age}}</div>
                 <div>{{pet.gender}}</div>
             </div>
-            <div class="search-container">
-                <div class="pet-thumbnail" v-for="(pet,index) in pets" v-else>
-                    <div class="pet-background"></div>
-                    <div class="pet-stats">
-                        <div class="pet-name">{{pet.name}}</div>
-                        <div>{{pet.species}}</div>
-                        <div>{{pet.breed}}</div>
-                        <div>{{pet.age}}</div>
-                        <!-- <button @click="deletePet(pet)">Delete</button> -->
-                        <button @click="toggleModal(index)">Apply</button>
-                    </div>
-                </div>
+            <div v-for="(pet,index) in pets" class="row-body" v-else>
+                <div>{{pet.name}}</div>
+                <div>{{pet.species}}</div>
+                <div>{{pet.breed}}</div>
+                <div>{{pet.age}}</div>
+                <button @click="toggleModal(index)">Apply</button>
             </div>
             <div class="modal" v-show="modalOpen">
                 <div class="content">
