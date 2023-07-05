@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue App</title>
-    <link href="index.css" rel="stylesheet" type="text/css" />
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  </head>
 
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue App</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
     <div id="app">
         <header>
             <nav>
@@ -41,18 +42,12 @@
                 <div>{{pet.age}}</div>
                 <div>{{pet.gender}}</div>
             </div>
-            <div class="search-container">
-                <div class="pet-thumbnail" v-for="(pet,index) in pets" v-else>
-                    <div class="pet-background"></div>
-                    <div class="pet-stats">
-                        <div class="pet-name">{{pet.name}}</div>
-                        <div>{{pet.species}}</div>
-                        <div>{{pet.breed}}</div>
-                        <div>{{pet.age}}</div>
-                        <!-- <button @click="deletePet(pet)">Delete</button> -->
-                        <button @click="toggleModal(index)">Apply</button>
-                    </div>
-                </div>
+            <div v-for="(pet,index) in pets" class="row-body" v-else>
+                <div>{{pet.name}}</div>
+                <div>{{pet.species}}</div>
+                <div>{{pet.breed}}</div>
+                <div>{{pet.age}}</div>
+                <button @click="toggleModal(index)">Apply</button>
             </div>
             <div class="modal" v-show="modalOpen">
                 <div class="content">
@@ -78,5 +73,6 @@
 
     </div>
     <script src="app.js"></script>
-  </body>
+</body>
+
 </html>
