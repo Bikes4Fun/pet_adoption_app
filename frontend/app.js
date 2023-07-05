@@ -1,51 +1,7 @@
 Vue.createApp({
   data() {
     return {
-      pets: [
-        {
-          name: "Charlie",
-          species: "dog",
-          breed: "pug",
-          age: "3",
-          gender: "animal",
-        },
-        {
-          name: "Bagel",
-          species: "hamster",
-          breed: "speckled",
-          age: "0",
-          gender: "animal",
-        },
-        {
-          name: "BumbleBee",
-          species: "turtle",
-          breed: "great big",
-          age: "120",
-          gender: "animal",
-        },
-        {
-          name: "Hazelnut",
-          species: "llama",
-          breed: "furry",
-          age: "20",
-          gender: "animal",
-        },
-        {
-          name: "Boomer",
-          species: "shark",
-          breed: "greenland",
-          age: "500",
-          gender: "animal",
-        },
-        {
-          name: "Jake",
-          species: "human",
-          breed: "ex-boyfriend",
-          age: "perpetually 16",
-          gender: "animal",
-        },
-      ],
-
+      pets: [],
       search: "",
       filteredPets: [],
       newPet: {
@@ -55,20 +11,7 @@ Vue.createApp({
         age: "",
         gender: "",
       },
-      applicants: [
-        {
-          name: "Alina",
-          phoneNumber: "000-000-0000",
-          email: "alina@alina.com",
-          petId: "BumbleBee"
-        },
-        {
-          name: "Lance",
-          phoneNumber: "111-111-1111",
-          email: "lance@lance.com",
-          petId: "Boomer"
-        }
-      ],
+      applicants: [],
       modalOpen: false,
       modal: {
         index: -1,
@@ -92,7 +35,8 @@ Vue.createApp({
         email: "",
         petId: "",
       },
-      sortOrder: ""
+      sortOrder: "",
+      sortOrderApps: ""
     };
   },
 
@@ -141,24 +85,48 @@ Vue.createApp({
       });
     },
 
-    sortStuff: function() {
+    sortAge: function() {
+      console.log(this.sortOrder);
       if (this.sortOrder == 'asc') {
         function compare(a,b) {
-          if (a.amount > b.amount) return -1;
-          if (a.amount < b.amount) return 1;
+          if (a.age > b.age) return -1;
+          if (a.age < b.age) return 1;
           return 0;
         }
         this.sortOrder = 'desc';
       }
       else {
         function compare(a,b) {
-          if (a.amount < b.amount) return -1;
-          if (a.amount > b.amount) return 1;
+          if (a.age < b.age) return -1;
+          if (a.age > b.age) return 1;
           return 0;
         }
         this.sortOrder = 'asc';
       }
-      this.pets.sort(compare);
+      console.log(this.pets);
+      this.pets = this.pets.sort(compare);
+    },
+
+    sortName: function() {
+      console.log(this.sortOrderApps);
+      if (this.sortOrderApps == 'asc') {
+        function compare(a,b) {
+          if (a.name > b.name) return -1;
+          if (a.name < b.name) return 1;
+          return 0;
+        }
+        this.sortOrderApps = 'desc';
+      }
+      else {
+        function compare(a,b) {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          return 0;
+        }
+        this.sortOrderApps = 'asc';
+      }
+      console.log(this.applicants);
+      this.applicants.sort(compare);
     },
 
     //makes a DELETE request to the server based on the ID number of the pet being deleted

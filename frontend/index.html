@@ -11,54 +11,16 @@
 
   <body>
     <div id="app">
-      <header>
-        <nav>
-          <a href="index.html" class="active">HOME</a>
-          <a href="applications.html">APPLICATIONS</a>
-        </nav>
-        <h1>Get the cutest pets here!</h1>
-        <input type="text" placeholder="Search..." v-model="search" />
-        <div v-on:click="resetSearch()" id="reset">x</div>
-        <button @click="togglepetModal(index)">add pet</button>
-      </header>
-
-<<<<<<< HEAD
-      <main class="thepets">
-        <div class="row-head">
-          <div>Name</div>
-          <div>Species</div>
-          <div>Breed</div>
-          <div>
-            Age
-            <span @click="sortAge()">&and;</span>
-            <span @click="sortAge()">&or;</span>
-          </div>
-          <div>Gender</div>
-        </div>
-
-        <div
-          v-for="pet in filteredPets"
-          class="row-body"
-          v-if="search.length > 0 && filteredPets.length > 0"
-        >
-          <div>{{pet.name}}</div>
-          <div>{{pet.species}}</div>
-          <div>{{pet.breed}}</div>
-          <div>{{pet.age}}</div>
-          <div>{{pet.gender}}</div>
-        </div>
-
-        <div class="search-container">
-          <div class="pet-thumbnail" v-for="(pet,index) in pets" v-else>
-            <div class="pet-background"></div>
-            <div class="pet-stats">
-              <div class="pet-name">{{pet.name}}</div>
-              <div>{{pet.species}}</div>
-              <div>{{pet.breed}}</div>
-              <div>{{pet.age}}</div>
-              <!-- <button @click="deletePet(pet)">Delete</button> -->
-              <button @click="toggleModal(index)">Apply</button>
-=======
+        <header>
+            <nav>
+                <a href="index.html" class="active">HOME</a>
+                <a href="applications.html">APPLICATIONS</a>
+            </nav>
+            <h1>Get the cutest pets here!</h1>
+            <input type="text" placeholder="Search..." v-model="search">
+            <div v-on:click="resetSearch()" id="reset">x</div>
+            <button @click="togglepetModal(index)">add pet</button>
+        </header>
         <main class="thepets">
             <div class="row-head">
                 <div>Name</div>
@@ -66,12 +28,11 @@
                 <div>Breed</div>
                 <div>
                     Age
-                    <span @click="sortStuff()">&and;</span>
-                    <span @click="sortStuff()">&or;</span>
+                    <span @click="sortAge()">&and;</span>
+                    <span @click="sortAge()">&or;</span>
                 </div>
                 <div>Gender</div>
             </div>
-
             <div v-for="pet in filteredPets" class="row-body" 
                 v-if="search.length > 0 && filteredPets.length > 0">
                 <div>{{pet.name}}</div>
@@ -92,37 +53,29 @@
                         <button @click="toggleModal(index)">Apply</button>
                     </div>
                 </div>
->>>>>>> f447fafb3b9c1b20a988d74d87f5309844450e8b
             </div>
-          </div>
-        </div>
-        <div class="modal" v-show="modalOpen">
-          <div class="content">
-            <div id="close" @click="toggleModal()">x</div>
-            Name<input type="text" v-model="modal.fullname" /> Number<input
-              type="text"
-              v-model="modal.phoneNumber"
-            />
-            Email<input type="text" v-model="modal.email" /> Pet ID<input
-              type="text"
-              v-model="modal.petId"
-            />
-            <button v-on:click="createApplication()">Submit</button>
-          </div>
-        </div>
-        <div class="petmodal" v-show="petmodalOpen">
-          <div class="stuff">
-            <div id="close" @click="togglepetModal()">x</div>
-            Pet's Name<input type="text" v-model="petmodal.petname" /> Species
-            of Pet<input type="text" v-model="petmodal.species" /> Breed<input
-              type="text"
-              v-model="petmodal.breed"
-            />
-            Pet's Age<input type="text" v-model="petmodal.age" />
-            <button v-on:click="createListing()">Submit</button>
-          </div>
-        </div>
-      </main>
+            <div class="modal" v-show="modalOpen">
+                <div class="content">
+                    <div id="close" @click="toggleModal()">x</div>
+                    Name<input type="text" v-model="modal.fullname">
+                    Number<input type="text" v-model="modal.phoneNumber">
+                    Email<input type="text" v-model="modal.email">
+                    Pet ID<input type="text" v-model="modal.petId">
+                    <button v-on:click="createApplication()">Submit</button>
+                </div>
+            </div>
+            <div class="petmodal" v-show="petmodalOpen">
+                <div class="stuff">
+                    <div id="close" @click="togglepetModal()">x</div>
+                    Pet's Name<input type="text" v-model="petmodal.petname">
+                    Species of Pet<input type="text" v-model="petmodal.species">
+                    Breed<input type="text" v-model="petmodal.breed">
+                    Pet's Age<input type="text" v-model="petmodal.age">
+                    <button v-on:click="createListing()">Submit</button>
+                </div>
+            </div>
+        </main>
+
     </div>
     <script src="app.js"></script>
   </body>

@@ -186,20 +186,3 @@ input {
     justify-content: center;
     align-items: center;
 }
-
-.pet-background {
-    background-image: url("https://images.pexels.com/photos/16652367/pexels-photo-16652367/free-photo-of-cute-dog-with-collar-on-leash-in-park.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-    height: 100px;
-    min-width: 100px;
-    background-repeat: no-repeat;
-    background-size: contain ;
-}
-
-.pet-thumbnail {
-    margin: 5px;
-}
-
-.pet-name {
-    color: #8f00ff;
-    font-size: larger;
-}
