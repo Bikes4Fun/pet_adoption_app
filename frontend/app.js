@@ -61,6 +61,12 @@ Vue.createApp({
           phoneNumber: "000-000-0000",
           email: "alina@alina.com",
           petId: "BumbleBee"
+        },
+        {
+          name: "Lance",
+          phoneNumber: "111-111-1111",
+          email: "lance@lance.com",
+          petId: "Boomer"
         }
       ],
       modalOpen: false,
@@ -135,7 +141,7 @@ Vue.createApp({
       });
     },
 
-    sortAge: function() {
+    sortStuff: function() {
       if (this.sortOrder == 'asc') {
         function compare(a,b) {
           if (a.amount > b.amount) return -1;
