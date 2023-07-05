@@ -92,7 +92,8 @@ Vue.createApp({
         email: "",
         petId: "",
       },
-      sortOrder: ""
+      sortOrder: "",
+      sortOrderApps: ""
     };
   },
 
@@ -141,24 +142,48 @@ Vue.createApp({
       });
     },
 
-    sortStuff: function() {
+    sortAge: function() {
+      console.log(this.sortOrder);
       if (this.sortOrder == 'asc') {
         function compare(a,b) {
-          if (a.amount > b.amount) return -1;
-          if (a.amount < b.amount) return 1;
+          if (a.age > b.age) return -1;
+          if (a.age < b.age) return 1;
           return 0;
         }
         this.sortOrder = 'desc';
       }
       else {
         function compare(a,b) {
-          if (a.amount < b.amount) return -1;
-          if (a.amount > b.amount) return 1;
+          if (a.age < b.age) return -1;
+          if (a.age > b.age) return 1;
           return 0;
         }
         this.sortOrder = 'asc';
       }
-      this.pets.sort(compare);
+      console.log(this.pets);
+      this.pets = this.pets.sort(compare);
+    },
+
+    sortName: function() {
+      console.log(this.sortOrderApps);
+      if (this.sortOrderApps == 'asc') {
+        function compare(a,b) {
+          if (a.name > b.name) return -1;
+          if (a.name < b.name) return 1;
+          return 0;
+        }
+        this.sortOrderApps = 'desc';
+      }
+      else {
+        function compare(a,b) {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          return 0;
+        }
+        this.sortOrderApps = 'asc';
+      }
+      console.log(this.applicants);
+      this.applicants.sort(compare);
     },
 
     //makes a DELETE request to the server based on the ID number of the pet being deleted
