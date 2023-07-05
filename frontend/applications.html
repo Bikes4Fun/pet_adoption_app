@@ -10,27 +10,33 @@
   </head>
 
   <body>
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="applications.html">APPLICATIONS</a>
-    </nav>
     <div id="app">
       <!-- Content goes here -->
-      <h1>Adoption Applications</h1>
-      <div>
-        <form>
-          <label for="">Name: </label>
-          <input type="text" v-model="newApplicant.name" />
-          <label for="">Phone Number: </label>
-          <input type="number" v-model="newApplicant.phoneNumber" />
-          <label for="">Email: </label>
-          <input type="email" v-model="newApplicant.email" />
-          <label for="">Pet ID: </label>
-          <input type="number" v-model="newApplicant.petId" />
-          <button type="submit" @click="createApplication()">Submit</button>
-        </form>
-        <div>{{newApplicant}}</div>
-      </div>
+      <header>
+        <nav>
+          <a href="index.html">HOME</a>
+          <a href="applications.html" class="active">APPLICATIONS</a>
+        </nav>
+        <h1>Adoption Applications</h1>
+      </header>
+      <main class="all-apps">
+        <div class="row-head">
+          <div>
+            Applicant's Name
+            <span @click="sortStuff()">&and;</span>
+            <span @click="sortStuff()">&or;</span>
+          </div>
+          <div>Applicant's Number</div>
+          <div>Applicant's Email</div>
+          <div>Applicant's Pet ID</div>
+        </div>
+        <div v-for="(app,index) in applicants" class="row-body">
+          <div>{{app.name}}</div>
+          <div>{{app.phoneNumber}}</div>
+          <div>{{app.email}}</div>
+          <div>{{app.petId}}</div>
+        </div>
+      </main>
     </div>
     <script src="app.js"></script>
   </body>
