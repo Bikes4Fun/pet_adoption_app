@@ -152,7 +152,7 @@ Vue.createApp({
         }
         this.sortOrder = 'asc';
       }
-      this.expenses.sort(compare);
+      this.pets.sort(compare);
     },
 
     //makes a DELETE request to the server based on the ID number of the pet being deleted
