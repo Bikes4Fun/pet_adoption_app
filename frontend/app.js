@@ -1,51 +1,7 @@
 Vue.createApp({
   data() {
     return {
-      pets: [
-        {
-          name: "Charlie",
-          species: "dog",
-          breed: "pug",
-          age: "3",
-          gender: "animal",
-        },
-        {
-          name: "Bagel",
-          species: "hamster",
-          breed: "speckled",
-          age: "0",
-          gender: "animal",
-        },
-        {
-          name: "BumbleBee",
-          species: "turtle",
-          breed: "great big",
-          age: "120",
-          gender: "animal",
-        },
-        {
-          name: "Hazelnut",
-          species: "llama",
-          breed: "furry",
-          age: "20",
-          gender: "animal",
-        },
-        {
-          name: "Boomer",
-          species: "shark",
-          breed: "greenland",
-          age: "500",
-          gender: "animal",
-        },
-        {
-          name: "Jake",
-          species: "human",
-          breed: "ex-boyfriend",
-          age: "perpetually 16",
-          gender: "animal",
-        },
-      ],
-
+      pets: [],
       search: "",
       filteredPets: [],
       newPet: {
@@ -55,20 +11,7 @@ Vue.createApp({
         age: "",
         gender: "",
       },
-      applicants: [
-        {
-          name: "Alina",
-          phoneNumber: "000-000-0000",
-          email: "alina@alina.com",
-          petId: "BumbleBee"
-        },
-        {
-          name: "Lance",
-          phoneNumber: "111-111-1111",
-          email: "lance@lance.com",
-          petId: "Boomer"
-        }
-      ],
+      applicants: [],
       modalOpen: false,
       modal: {
         index: -1,
