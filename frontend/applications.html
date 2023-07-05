@@ -22,7 +22,11 @@
     </header>
     <main class="all-apps">
         <div class="row-head">
-            <div>Applicant's Name</div>
+            <div>
+                Applicant's Name
+                <span @click="sortStuff()">&and;</span>
+                <span @click="sortStuff()">&or;</span>
+            </div>
             <div>Applicant's Number</div>
             <div>Applicant's Email</div>
             <div>Applicant's Pet ID</div>
