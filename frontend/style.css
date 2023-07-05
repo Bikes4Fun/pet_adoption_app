@@ -90,6 +90,16 @@ header button {
     background-color: var(--green);
 }
 
+.all-apps {
+    width: 90%;
+    margin: 24px 0;
+    text-align: left;
+}
+
+.all-apps > div:nth-child(even) {
+    background-color: var(--green);
+}
+
 .row-head, .row-body {
     background-color: var(--orange);
     height: 60px;
