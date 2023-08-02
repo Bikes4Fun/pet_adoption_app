@@ -1,58 +1,27 @@
 const express = require("express");
-const cors = require("cors");
+const model = require("./model.js");
+const dotenv = require("dotenv");
+
 const app = express();
-const model = require("./model.js"); // NEW SCHEMAS MUST BEGIN WITH "MODEL."
-const port = 8080;
+const port = process.env.PORT || 8080;
 
-app.use(cors());
 app.use(express.json());
+app.use(express.static('../public')) // instructs to pull information from frontend in public folder
 
-// CODE BELOW THIS LINE !!!
+dotenv.config();
+var petfinder = require("@petfinder/petfinder-js");
+.....env
 
-function petValidator(pet) {
-  var errors = [];
-  if (!pet.name) {
-    errors.push("Pet needs a name");
-  }
-  if (!pet.species) {
-    errors.push("Pet needs an species.");
-  }
-  if (!pet.breed) {
-    errors.push("Pet needs a breed.");
-  }
-  if (!pet.age) {
-    errors.push("Pet needs an age.");
-  } else if (isNaN(pet.age)) {
-    errors.push("Pet age needs to be a number.");
-  }
-  if (!pet.gender) {
-    errors.push("Pet needs a gender.");
-  }
-  return errors;
-}
+client.animal.search()
+    .then(function (response) {
+      console.log("success? ...");
+        // Do something with `response.data.animals`
+    })
+    .catch(function (error) {
+        // Handle the error
+    });
 
-function ApplicationValidator(AdoptionApp) {
-  var errors = [];
-  if (!AdoptionApp.name) {
-    errors.push("Application needs a name");
-  }
-  if (!AdoptionApp.phoneNumber) {
-    errors.push("Application needs an phone number");
-  } else if (isNaN(AdoptionApp.phoneNumber)) {
-    errors.push("Phone Number needs to be a number");
-  }
-  if (!AdoptionApp.email) {
-    errors.push("Application needs an email.");
-  }
-  if (!AdoptionApp.petId) {
-    errors.push("Application needs an ID.");
-  } else if (isNaN(AdoptionApp.petId)) {
-    errors.push("Pet id needs to be a number");
-  }
-  return errors;
-}
 
-// GET
 
 app.get("/pets", async (req, res) => {
   model.Pet.find().then(function (pets) {

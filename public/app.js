@@ -1,3 +1,5 @@
+const URL = "http://localhost:8080/";
+
 Vue.createApp({
   data() {
     return {
@@ -41,6 +43,11 @@ Vue.createApp({
   },
 
   methods: {
+    initiateAPI: function() {
+      fetch(URL + "animal.search")
+      .then(console.log("something..."))
+    },
+
     //makes a GET request to the server for all pet listings
     getListings: function () {
       fetch("http://localhost:8080/pets")
@@ -58,13 +65,13 @@ Vue.createApp({
       myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
       var encodedData =
-        "name=" +
+        /* "name=" +
         encodeURIComponent(this.modal.name) +
         "&species=" +
         encodeURIComponent(this.modal.species) +
         "&breed=" +
         encodeURIComponent(this.modal.breed);
-      //age: "", gender: "",
+      //age: "", gender: "", */
       console.log(encodedData);
 
       var requestOptions = {
@@ -188,14 +195,14 @@ Vue.createApp({
       myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
       var encodedData =
-        "name=" +
+       /*  "name=" +
         encodeURIComponent(this.newApplicant.name) +
         "&phoneNumber=" +
         encodeURIComponent(this.newApplicant.phoneNumber) +
         "&email=" +
         encodeURIComponent(this.newApplicant.email) +
         "&petId=" +
-        encodeURIComponent(this.newApplicant.petId);
+        encodeURIComponent(this.newApplicant.petId); */;
 
       var requestOptions = {
         method: "POST",
@@ -227,6 +234,7 @@ Vue.createApp({
 
   created: function () {
     this.getListings();
+    this.initiateAPI();
   }, //created close
 
   watch: {
